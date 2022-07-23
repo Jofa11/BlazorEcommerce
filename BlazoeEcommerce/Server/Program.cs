@@ -1,6 +1,7 @@
 global using BlazoeEcommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using BlazoeEcommerce.Server.Data;
+global using BlazoeEcommerce.Server.Services.ProductService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
